@@ -55,3 +55,50 @@ function expensiveItems() {
   console.log(expensiveItems);
 }
 expensiveItems();
+
+// Calculate Total Revenue: Calculate the total revenue (sum of all order amounts).
+function totalRevenue() {
+  const totalRevenue = orders.reduce((totalAmount, order) => {
+    total = order.items.reduce((total, item) => {
+      total += item.price * item.quantity;
+      return total;
+    }, 0);
+    return totalAmount + total;
+  }, 0);
+  console.log(totalRevenue);
+}
+// totalRevenue();
+
+// Summarize Orders by Customer: Generate an object where each key is a customerName, and the value is the total amount spent by that customer.
+function summarizeOrders() {
+  const orderObj = orders.reduce((accObj, order) => {
+    const total = order.items.reduce((total, item) => {
+      return (total += item.price * item.quantity);
+    }, 0);
+    if (accObj.hasOwnProperty(order.customerName)) {
+      accObj[order.customerName] += total;
+    } else {
+      accObj[order.customerName] = total;
+    }
+
+    return accObj;
+  }, {});
+  console.log(orderObj);
+}
+// summarizeOrders();
+// List Unique Products: Create an array of unique product names across all orders.
+function uniqueProducts() {
+  const uniqueProductsArr = orders
+    .reduce((allItems, order) => {
+      allItems.push(...order.items);
+      return allItems;
+    }, [])
+    .reduce((uniqProductsArr, products) => {
+      if (!uniqProductsArr.includes(products.productName)) {
+        uniqProductsArr.push(products.productName);
+      }
+      return uniqProductsArr;
+    }, []);
+  console.log(uniqueProductsArr);
+}
+uniqueProducts();
