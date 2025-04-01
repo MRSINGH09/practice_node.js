@@ -13,5 +13,4 @@ async function number() {
   }
 }
 
-// console.log(number());
 console.log(data.name);
