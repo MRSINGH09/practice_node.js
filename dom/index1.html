@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event delegation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #outer {
+            height: 10rem;
+            width: 10rem;
+            position: relative;
+            top: 10rem;
+            left: 20rem;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease-in;
+        }
+
+        .front-card {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            backface-visibility: hidden;
+            background-color: red;
+            /* transform-style: preserve-3d; */
+            transition: all 0.5s ease-in;
+
+        }
+
+        /* #outer:hover {
+        transform: rotateY(180deg);
+        } */
+
+        .back-card {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: yellow;
+            z-index: -1;
+            transform: rotateY(180deg);
+        }
+
+        .card {
+            height: 10rem;
+            width: 6rem;
+            position: relative;
+            top: 10rem;
+            left: 10rem;
+            transition: all 0.5s ease-in;
+        }
+
+        .front {
+            height: 100%;
+            width: 100%;
+            background-color: green;
+            backface-visibility: hidden;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease-in;
+        }
+
+        .card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .back {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: blueviolet;
+            transform: rotateY(180deg);
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div class="front-card"></div>
+        <div class="back-card"></div>
+    </div>
+    <div class="card">
+        <div class="front"></div>
+        <div class="back"></div>
+    </div>
+    <script>
+        const crard = document.getElementById('outer')
+        let rotated = false;
+        crard.addEventListener("click", () => {
+            if (!rotated) {
+                crard.style = "transform:rotateY(180deg);"
+                rotated = true;
+            }
+            else {
+                crard.style = "transform:rotateY(0deg);"
+                rotated = false
+            }
+        })
+        function greet() {
+            console.log("hii I am AbhisheK Singh");
+            window.alert('Oye Ye kya')
+            debuger;
+            // const name = window.prompt('write a your name', "mohan")
+            // if (name) {
+            //     console.log(name)
+            // }
+            // else {
+            //     alert('oye naam likh ka ja')
+            // }
+            // console.log(window.confirm('are you gay?'))
+            let x = 5, y = 3
+            console.assert(x > y, "invalid case")
+
+        }
+    </script>
+
+</body>
+
+</html>

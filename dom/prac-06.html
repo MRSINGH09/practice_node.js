@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>broweser enviroment</title>
+</head>
+
+<body>
+    <div id="parent">
+        <button id="child">Click Me</button>
+    </div>
+
+    <script>
+        const parent = document.getElementById("parent");
+        const child = document.getElementById("child");
+
+        parent.addEventListener("click", () => {
+            console.log("Parent clicked");
+        },);
+
+
+        child.addEventListener("click", (event) => {
+            event.stopImmediatePropagation() // Stops event propagation to parent
+            console.log("Child clicked");
+        });
+        child.addEventListener('click', () => {
+            console.log('hii another event is triggered in child')
+        })
+    </script>
+
+</body>
+
+</html>

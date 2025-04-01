@@ -1,3 +1,5 @@
+const data = require("./app.json");
+
 async function number() {
   for (let i = 0; i < 10; i++) {
     console.log("hello");
@@ -11,4 +13,5 @@ async function number() {
   }
 }
 
-console.log(number());
+// console.log(number());
+console.log(data.name);
